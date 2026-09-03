@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>The Fizzology</title>
+    <script>
+      // GitHub Pages doesn't know about client-side routes like /contact
+      // or /about — it only knows real files. When someone refreshes or
+      // opens one of those URLs directly, GitHub Pages serves this file
+      // (since there's no real file at that path) instead of a bare 404.
+      // We stash the path they wanted and bounce to the real index.html,
+      // which un-stashes it and hands off to React Router.
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace(
+        window.location.origin + '/?/' + path.slice(1).replace(/&/g, '~and~')
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
